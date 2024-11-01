@@ -30,7 +30,7 @@ def login():
             )
             if res.fetchone() is not None:
                 res_username, res_password = res.fetchone()
-                print(res_username, res_password,res.fetchone())
+                print(res_username, res_password, res.fetchone())
                 conn.close()
                 return render_template(
                     "profile.html", username=res_username, password=res_password
@@ -69,4 +69,4 @@ def create_db():
 
 if __name__ == "__main__":
     create_db()
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
